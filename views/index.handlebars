@@ -1,0 +1,29 @@
+<body>
+    {{> navbar}}
+    <div id="wrapper">
+        <h1>Note Scraper</h1>
+        <h2><i>If you can do this...the homework should be no problem.</i></h2>
+        <div id="articles"></div>
+        <div id="notes"></div>
+    </div>
+    <script type="text/javascript">
+        console.log('im here')
+        // Grab the articles as a json
+        $.getJSON("/articles", function (data) {
+            // For each one
+            for (var i = 0; i < data.length; i++) {
+                // Display the apropos information on the page
+                $("#articles").append(
+                    "<p data-id='" +
+                    data[i]._id +
+                    "'>" +
+                    data[i].title +
+                    "<br />" +
+                    data[i].link +
+                    "</p>"
+                );
+            }
+        });
+
+    </script>
+</body>
