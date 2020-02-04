@@ -85,3 +85,12 @@
 #wrapper h1 {
   text-align: center;
 }
+
+#wrapper p {
+  text-align: center;
+}
+
+#noteBtn {
+  background-color: #8c52fe;
+  color: white;
+}

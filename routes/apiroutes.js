@@ -62,6 +62,7 @@ module.exports = function(app) {
 
   app.get("/saved", function(req, res) {
     db.Article.find({ saved: false })
+      .limit(10)
       .then(function(dbLibrary) {
         // If any Libraries are found, send them to the client with any associated Books
         res.json(dbLibrary);
@@ -87,7 +88,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/articles/save/:id", function(req, res) {
+  app.put("/articles/save/:id", function(req, res) {
     db.Article.updateOne({ _id: req.params.id }, { $set: { saved: true } })
       .then(function(dbArticle) {
         res.render("index", {
