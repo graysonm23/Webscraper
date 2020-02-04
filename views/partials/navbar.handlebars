@@ -2,8 +2,22 @@
     <link rel="stylesheet" href="/styles/main.css" media="screen" title="no title" charset="utf-8">
 </head>
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img id="navImage" src="https://github.com/graysonm23/Webscraper/blob/master/public/images/Logo.png?raw=true"
-            alt="logo image">
-    </a>
+    <div class="navItems">
+        <a class="navbar-brand" href="#">
+            <img id="navImage"
+                src="https://github.com/graysonm23/Webscraper/blob/master/public/images/Logo.png?raw=true"
+                alt="logo image">
+        </a>
+        <h1 id="navHeader">Mongo Scraper</h1>
+    </div>
+    <div class="navItemsTwo">
+        <a href="/"><button class="btn btn-primary btn-sm m-2">Home</button></a>
+        <a href="/articles/saved"><button class="btn btn-primary btn-sm m-2">Saved Articles</button></a>
+        {{#if articles}}
+        <a href="/scrape"><button disabled=true class="btn btn-danger btn-sm m-2">Scrape New Articles</button></a>
+        {{else}}
+        <a href="/scrape"><button id="scrapeBtn" class="btn btn-danger btn-sm m-2">Scrape New Articles</button></a>
+        {{/if}}
+        <a href="/clear"><button id="clearBtn" class="btn btn-danger btn-sm m-2">Clear Articles</button></a>
+    </div>
 </nav>

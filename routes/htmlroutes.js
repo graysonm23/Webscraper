@@ -8,4 +8,8 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
+  app.get("/articles/saved", function(req, res) {
+    res.render("saved");
+  });
 };

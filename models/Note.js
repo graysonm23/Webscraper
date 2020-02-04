@@ -9,7 +9,7 @@ var NoteSchema = new Schema({
   // `title` is of type String
   title: String,
   // `body` is of type String
-  body: String
+  link: String
 });
 
 // This creates our model from the above schema, using mongoose's model method

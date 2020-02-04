@@ -2,3 +2,86 @@
   height: 50px;
   width: 50px;
 }
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.navItemsTwo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#newsImage {
+  max-height: 80vh;
+  min-height: 80vh;
+  min-width: 100%;
+  filter: brightness(50%);
+}
+
+.imageDiv {
+  position: relative;
+}
+
+#imageText {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  color: white;
+  font-size: 40px;
+  text-align: center;
+}
+
+.imageSpan {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#articles {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#saved {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.articleClassA {
+  color: black;
+}
+
+.articleClassA:hover {
+  color: white;
+  transition: ease-in 0.1s;
+}
+
+.card {
+  border-radius: 10px;
+  border: solid 1px black;
+  min-height: 150px;
+}
+
+.card-title {
+  text-align: center;
+  min-height: 60px;
+  background-color: #007bfe;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.card-body {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#wrapper h1 {
+  text-align: center;
+}
