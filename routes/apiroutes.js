@@ -131,4 +131,36 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+  app.get("/notes/:id", function(req, res) {
+    db.Article.findOne({ _id: req.params.id })
+      .populate("note")
+      .then(function(dbLibrary) {
+        // If any Libraries are found, send them to the client with any associated Books
+        res.json(dbLibrary);
+      })
+      .catch(function(err) {
+        // If an error occurs, send it back to the client
+        res.json(err);
+      });
+  });
+
+  // Route for saving/updating an Article's associated Note
+  app.post("/notes/:id", function(req, res) {
+    db.Note.create(req.body)
+      .then(function(dbNote) {
+        return db.Article.updateOne(
+          { _id: req.params.id },
+          { note: dbNote._id },
+          { new: true }
+        );
+      })
+      .then(function(dbUser) {
+        // If the User was updated successfully, send it back to the client
+        res.json(dbUser);
+      })
+      .catch(function(err) {
+        // If an error occurs, send it back to the client
+        res.json(err);
+      });
+  });
 };
