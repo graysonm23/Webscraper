@@ -29,9 +29,14 @@ require("./routes/apiroutes")(app);
 require("./routes/htmlroutes")(app);
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", {
-  useNewUrlParser: true
-});
+mongoose
+  .connect("mongodb://localhost/unit18Populater")
+  .then(() => {
+    console.log("Connected to Database");
+  })
+  .catch(err => {
+    console.log("Not Connected to Database ERROR! ", err);
+  });
 
 // Start the server
 app.listen(PORT, function() {
