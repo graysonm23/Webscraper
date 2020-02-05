@@ -30,7 +30,7 @@ require("./routes/htmlroutes")(app);
 
 // Connect to the Mongo DB
 mongoose
-  .connect("mongodb://localhost/unit18Populater")
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/unit18Populater")
   .then(() => {
     console.log("Connected to Database");
   })
